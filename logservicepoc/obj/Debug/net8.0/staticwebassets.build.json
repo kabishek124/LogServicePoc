@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "mEUlgYw0lS+tjTUCyihFQUrubrUzn0v1kB+BxGxu7as=",
+  "Source": "logservicepoc",
+  "BasePath": "_content/logservicepoc",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
