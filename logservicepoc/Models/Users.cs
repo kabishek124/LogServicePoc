@@ -14,4 +14,6 @@ namespace logservicepoc.Models
         public DateTime CreatedAt { get; set; } // Maps to created_at
         public DateTime? UpdatedAt { get; set; } 
     }
+
+    
 }

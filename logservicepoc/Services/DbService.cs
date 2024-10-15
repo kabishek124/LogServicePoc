@@ -6,7 +6,7 @@ using Dapper;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 
-namespace LogServicePoc.Services;
+namespace logservicepoc.Services;
 #nullable disable
 public class DbService : IDbService
 {

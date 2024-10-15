@@ -1,7 +1,9 @@
-using LogServicePoc.Services;
+using logservicepoc.Services;
 using Microsoft.OpenApi.Models;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
+Env.Load();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -34,9 +36,34 @@ builder.Services.AddSwaggerGen(options => {
     });
 });
 
+// builder.Services.AddAuthentication(options =>
+//     {
+//     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+//     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+// }).AddJwtBearer(o =>
+// {
+//     o.TokenValidationParameters = new TokenValidationParameters
+//     {
+//         ValidIssuer = Environment.GetEnvironmentVariable("JWTISSUER"),
+//         ValidAudience = Environment.GetEnvironmentVariable("JWTAUDIENCE"),
+//         IssuerSigningKey = new SymmetricSecurityKey
+//         (Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("JWTKEY"))),
+//         ValidateIssuer = true,
+//         ValidateAudience = true,
+//         ValidateLifetime = true,
+//         ValidateIssuerSigningKey = true
+//     };
+// });
+builder.Services.AddAuthorization();
+
+//builder.Services.AddDetection();
+
 builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
+builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddScoped<IDbService, DbService>();
+builder.Services.AddScoped<IUsersService, UsersService>();
 
 
 var app = builder.Build();
@@ -47,32 +74,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseAuthorization();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+app.MapControllers();
+
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

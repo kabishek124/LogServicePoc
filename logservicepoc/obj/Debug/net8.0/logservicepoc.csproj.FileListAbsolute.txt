@@ -38,3 +38,15 @@
 /home/abishek/Documents/LogServicePOC/logservicepoc/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
 /home/abishek/Documents/LogServicePOC/logservicepoc/bin/Debug/net8.0/Npgsql.dll
 /home/abishek/Documents/LogServicePOC/logservicepoc/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/home/abishek/Documents/LogServicePOC/logservicepoc/bin/Debug/net8.0/BCrypt.Net-Next.dll
+/home/abishek/Documents/LogServicePOC/logservicepoc/bin/Debug/net8.0/DotNetEnv.dll
+/home/abishek/Documents/LogServicePOC/logservicepoc/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/abishek/Documents/LogServicePOC/logservicepoc/bin/Debug/net8.0/Microsoft.Bcl.TimeProvider.dll
+/home/abishek/Documents/LogServicePOC/logservicepoc/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/home/abishek/Documents/LogServicePOC/logservicepoc/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/abishek/Documents/LogServicePOC/logservicepoc/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/home/abishek/Documents/LogServicePOC/logservicepoc/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/home/abishek/Documents/LogServicePOC/logservicepoc/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/abishek/Documents/LogServicePOC/logservicepoc/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/home/abishek/Documents/LogServicePOC/logservicepoc/bin/Debug/net8.0/Sprache.dll
+/home/abishek/Documents/LogServicePOC/logservicepoc/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
