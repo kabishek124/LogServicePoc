@@ -1,6 +1,9 @@
 using logservicepoc.Services;
 using Microsoft.OpenApi.Models;
 using DotNetEnv;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 Env.Load();
@@ -36,25 +39,25 @@ builder.Services.AddSwaggerGen(options => {
     });
 });
 
-// builder.Services.AddAuthentication(options =>
-//     {
-//     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-//     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-//     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-// }).AddJwtBearer(o =>
-// {
-//     o.TokenValidationParameters = new TokenValidationParameters
-//     {
-//         ValidIssuer = Environment.GetEnvironmentVariable("JWTISSUER"),
-//         ValidAudience = Environment.GetEnvironmentVariable("JWTAUDIENCE"),
-//         IssuerSigningKey = new SymmetricSecurityKey
-//         (Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("JWTKEY"))),
-//         ValidateIssuer = true,
-//         ValidateAudience = true,
-//         ValidateLifetime = true,
-//         ValidateIssuerSigningKey = true
-//     };
-// });
+builder.Services.AddAuthentication(options =>
+    {
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(o =>
+{
+    o.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidIssuer = Environment.GetEnvironmentVariable("JWTISSUER"),
+        ValidAudience = Environment.GetEnvironmentVariable("JWTAUDIENCE"),
+        IssuerSigningKey = new SymmetricSecurityKey
+        (Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("JWTKEY"))),
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true
+    };
+});
 builder.Services.AddAuthorization();
 
 //builder.Services.AddDetection();
@@ -64,6 +67,9 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddScoped<IDbService, DbService>();
 builder.Services.AddScoped<IUsersService, UsersService>();
+builder.Services.AddScoped<IAuthservice, AuthService>();
+builder.Services.AddScoped<IUserSessionsService, UserSessionsService>();
+builder.Services.AddScoped<ICategoriesService, CategoriesService>();
 
 
 var app = builder.Build();

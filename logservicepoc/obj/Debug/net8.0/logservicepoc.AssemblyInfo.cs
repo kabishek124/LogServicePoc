@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("logservicepoc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7cdb04bbc3f849c0ad626d8d12b4b67b14ad3e14")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+da675c95f8bcc321e306619cfae57b31eb74461e")]
 [assembly: System.Reflection.AssemblyProductAttribute("logservicepoc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("logservicepoc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

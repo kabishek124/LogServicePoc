@@ -1,6 +1,5 @@
 namespace logservicepoc.DTO
 {
-    
     public class HashedPasswordResponse{
         public string? Salt { get; set; }
         public string? hashedPassword { get; set; }
@@ -10,24 +9,47 @@ namespace logservicepoc.DTO
     {
         public int StatusCode { get; set; }
         public Boolean Error { get; set; }
-        public dynamic? Message { get; set; }
-        public dynamic? Data { get; set; }
+        public dynamic Message { get; set; }
+        public dynamic Data { get; set; }
     
     }
 
     public class UserResponse{
-        public int UserId { get; set; } // Maps to user_id
-        public string Email { get; set; } // Maps to email
-        public string FirstName { get; set; } // Maps to first_name
-        public string LastName { get; set; } // Maps to last_name
+        public int? UserId { get; set; } // Maps to user_id
+        public string? Email { get; set; } // Maps to email
+        public string? FirstName { get; set; } // Maps to first_name
+        public string? LastName { get; set; } // Maps to last_name
         public bool IsActive { get; set; } // Maps to is_active
-        public DateTime? LastLoginAt { get; set; } // Maps to last_login_at (nullable)
+        public DateTime LastLoginAt { get; set; } // Maps to last_login_at (nullable)
         public DateTime CreatedAt { get; set; } // Maps to created_at
-        public DateTime? UpdatedAt { get; set; } 
+        public DateTime UpdatedAt { get; set; } 
     }
 
     public class UserListResponse{
-        public List<UserResponse>? Users { get; set; }
-        public int? Count {get; set;}
+        public List<UserResponse> Users { get; set; }
+        public int Count {get; set;}
+    }
+
+    public class LoginResponse{
+
+        public int StatusCode { get; set; }
+        public Boolean Error { get; set; }
+        public dynamic Message { get; set; }
+        public dynamic Data { get; set; }
+        public string Token { get; set; }
+    }
+
+    public class CategoryResponse{
+        public int? CategoryId { get; set; }
+        public string? CategoryName { get; set; }
+        public string? CategoryDescription { get; set; }
+        public bool IsActive { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+    }
+
+    public class CategoryListResponse{
+        public List<CategoryResponse> Categories { get; set; }
+        public int Count {get; set;}
     }
 }

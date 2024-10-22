@@ -108,9 +108,8 @@ public class DbService : IDbService
         try 
         {
             dynamic result;
-
             result = await _db.ExecuteScalarAsync<dynamic>(command, parms);
-
+            Console.WriteLine(result);
             return result;
         }
         finally

@@ -1,5 +1,6 @@
 namespace logservicepoc.DTO
 {
+    #nullable disable
     public class UserReq
     {
         /// </summary>
@@ -12,6 +13,16 @@ namespace logservicepoc.DTO
     public class ListReq{
         public int Index { get; set; }
         public int Limit { get; set; }
-        public string? SearchKey { get; set; }
+        public string SearchKey { get; set; }
+    }
+
+    public class LoginReq{
+        public string Email { get; set; }
+        public string Password { get; set; }
+    }
+
+    public class CategoryReq{
+        public string CategoryName { get; set; }
+        public string Description { get; set; }
     }
 }
