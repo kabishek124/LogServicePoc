@@ -3,7 +3,6 @@ namespace logservicepoc.DTO
     #nullable disable
     public class UserReq
     {
-        /// </summary>
         public string Email { get; set; } // Maps to email
         public string Password { get; set; } // Maps to password_hash
         public string FirstName { get; set; } // Maps to first_name
@@ -24,5 +23,13 @@ namespace logservicepoc.DTO
     public class CategoryReq{
         public string CategoryName { get; set; }
         public string Description { get; set; }
+    }
+
+    public class ProductReq{
+        public string ProductName { get; set; }
+        public string Description { get; set; }
+        public string Price { get; set; }
+        public int StockQuantity { get; set; }
+        public int CategoryId { get; set; }
     }
 }

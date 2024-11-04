@@ -19,10 +19,10 @@ namespace logservicepoc.DTO
         public string? Email { get; set; } // Maps to email
         public string? FirstName { get; set; } // Maps to first_name
         public string? LastName { get; set; } // Maps to last_name
-        public bool IsActive { get; set; } // Maps to is_active
-        public DateTime LastLoginAt { get; set; } // Maps to last_login_at (nullable)
-        public DateTime CreatedAt { get; set; } // Maps to created_at
-        public DateTime UpdatedAt { get; set; } 
+        public bool? IsActive { get; set; } // Maps to is_active
+        public DateTime? LastLoginAt { get; set; } // Maps to last_login_at (nullable)
+        public DateTime? CreatedAt { get; set; } // Maps to created_at
+        public DateTime? UpdatedAt { get; set; } 
     }
 
     public class UserListResponse{
@@ -50,6 +50,24 @@ namespace logservicepoc.DTO
 
     public class CategoryListResponse{
         public List<CategoryResponse> Categories { get; set; }
+        public int Count {get; set;}
+    }
+
+    public class ProductResponse{
+        public int? ProductId { get; set; }
+        public string? ProductName { get; set; }
+        public string? Description { get; set; }
+        public string? Price { get; set; }
+        public int StockQuantity { get; set; }
+        public int CategoryId { get; set; }
+        public string? CategoryName { get; set; }
+        public bool IsActive { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+    }
+
+    public class ProductListResponse{
+        public List<ProductResponse> Products { get; set; }
         public int Count {get; set;}
     }
 }

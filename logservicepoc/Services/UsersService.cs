@@ -81,14 +81,14 @@ namespace logservicepoc.Services
 
                 foreach (var user in userList){
                     var data = new UserResponse{
-                        UserId = user.UserId,
-                        Email = user.Email,
-                        FirstName = user.FirstName,
-                        LastName = user.LastName,
-                        IsActive = user.IsActive,
-                        LastLoginAt = user.LastLoginAt,
-                        CreatedAt = user.CreatedAt,
-                        UpdatedAt = user.UpdatedAt,
+                        UserId = user.userid,
+                        Email = user.email,
+                        FirstName = user.firstname,
+                        LastName = user.lastname,
+                        IsActive = user.isactive,
+                        LastLoginAt = user.lastloginat,
+                        CreatedAt = user.createdat,
+                        UpdatedAt = user.updatedat,
                     };
                     listData.Add(data);
                 }
@@ -99,13 +99,12 @@ namespace logservicepoc.Services
                 respObj.Error = false;
                 respObj.Message = "Success";
                 respObj.Data = userObj;
-
             }
             catch (Exception e)
             {
                 string[] errorMessage = e.Message.Split(":");
                 respObj.StatusCode = 500;
-                respObj.Message = errorMessage[1];
+                respObj.Message = errorMessage;
                 respObj.Error = true;
             }
             return respObj;

@@ -70,6 +70,7 @@ builder.Services.AddScoped<IUsersService, UsersService>();
 builder.Services.AddScoped<IAuthservice, AuthService>();
 builder.Services.AddScoped<IUserSessionsService, UserSessionsService>();
 builder.Services.AddScoped<ICategoriesService, CategoriesService>();
+builder.Services.AddScoped<IProductsService, ProductsService>();
 
 
 var app = builder.Build();
